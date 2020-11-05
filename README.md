@@ -8,7 +8,7 @@ Alright, here we go!
 ### Bubble Sort
 This algorithm is one of the easiest to learn, it works like this:
 
-An inner loop runs through the whole Array comparing neighbor elements and swapping them if the smaller one is ahead of the bigger. An outer loop 
+An inner loop runs through the whole Array comparing neighboring elements and swapping them if the current element is bigger than the next one. Also, we have an outer loop that makes sure that if the smallest element is in the position array.length - 1, we can get it to the first place by repeating the inner loop array.length times.
 
 ```javascript
 const  array = [4, 5, 2, 1, 8];
