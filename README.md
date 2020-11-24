@@ -3,7 +3,11 @@ This repo was created with the sole purpose of storing various types of Algorith
 
 > If you're thinking about helping out with this project, please, make sure that your additions are very well and simply explained. Also, all the code must be written in JavaScript. That's it!
 
-Alright, here we go!
+Now, feel free to pick which type of algorithm you wish to learn first!
+
+* [Sorting Algorithms](#sorting-algorithms) <br/>
+* [Searching Algorithms](#searching-algorithms)
+
 ## Sorting Algorithms:
 ### Bubble Sort
 This algorithm is one of the easiest to learn, it works like this:
@@ -79,3 +83,36 @@ for (let i = 1; i < array.length; i++) {
 
 console.log(array); // Output: [1, 2, 3, 4, 5]
 ```
+
+## Searching Algorithms:
+### Binary Search
+This algorithm - which in this example involves recursion - is very quick and simple, however, it only works if the Array is organized! It has a time complexity of *O(log n)*.
+
+It simply calculates the middle of the array based on the `start` and `end` indexes and checks if the middle number is greater or smaller than the number which we are looking for. If the middle number is smaller than `n`, we know for a fact that if `n` exists it can only be to the right of the middle number, reducing the "search area" by half and so on until the number is found or until `start` is greather than `end`, if that happens the function will return `false`.
+
+```javascript
+function binarySearch(array, start, end, n) {
+  const middle = Math.floor((start + end) / 2);
+
+  if (start <= end) {
+    if (array[middle] > n) {
+      return binarySearch(array, 0, middle - 1, n);
+    } else if (array[middle] < n) {
+      return binarySearch(array, middle + 1, end, n);
+    } else {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+const arr = [1, 2, 3, 4, 5];
+
+if (binarySearch(arr, 0, arr.length - 1, 1)) {
+  console.log("Number found!");
+} else {
+  console.log("Number NOT found!");
+}
+```
+> Output: Number found!
